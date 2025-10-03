@@ -4,9 +4,13 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8082:8082"
+      - "8083:8083"
     environment:
+      SPRING_PORT: 8083
       SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: fiap
+      SPRING_RABBITMQ_PASSWORD: senhafiap
     depends_on:
       rabbitmq:
         condition: service_healthy
@@ -28,10 +32,10 @@ services:
     networks:
       - springboot-rabbitmq-network
     healthcheck:
-      test: rabbitmq-diagnostics -q ping
+      test: rabbitmqctl status
       interval: 30s
-      timeout: 30s
-      retries: 3
+      timeout: 10s
+      retries: 5
 
 volumes:
   rabbitmq-lib:
