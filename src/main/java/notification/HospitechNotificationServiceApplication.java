@@ -1,4 +1,4 @@
-package dev.call.hospitech_notification_service;
+package notification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HospitechNotificationServiceApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(HospitechNotificationServiceApplication.class, args);
 	}
 
